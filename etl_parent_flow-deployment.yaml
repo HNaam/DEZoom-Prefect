@@ -1,0 +1,71 @@
+###
+### A complete description of a Prefect Deployment for flow 'etl-parent-flow'
+###
+name: git-deployment
+description: null
+version: de5a5cde8611d578d0dcf927ff3dc0e0
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: null
+tags:
+- git-block
+parameters: {"months": [11] , "year" : 2020, "color": "green"}
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-parent-flow
+manifest_path: null
+storage:
+  repository: https://github.com/HNaam/DEZoom-Prefect.git
+  reference: null
+  access_token: null
+  include_git_objects: true
+  _block_document_id: 10cbcf7e-99c2-4dd9-95e2-7add57fb0167
+  _block_document_name: git-block
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: ''
+entrypoint: 03_deployement\parameterized_flow.py:etl_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      default:
+      - 1
+      - 2
+      position: 0
+      type: array
+      items:
+        type: integer
+    year:
+      title: year
+      default: 2021
+      position: 1
+      type: integer
+    color:
+      title: color
+      default: yellow
+      position: 2
+      type: string
+  required: null
+  definitions: null
+timestamp: '2023-11-04T22:05:12.156933+00:00'
+triggers: []
+enforce_parameter_schema: null
